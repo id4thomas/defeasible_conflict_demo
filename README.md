@@ -35,4 +35,8 @@ Model trained with code from [here](https://github.com/id4thomas/defeasible-nli)
 
 ## Demo
 ### Generative Inference
-![gen_atomic_example](./imgs/generative_atomic_sample.png)
+<!-- ![gen_atomic_example](./imgs/generative_atomic_sample.png) -->
+<img src = "./imgs/generative_atomic_sample.png" width="80%" height="80%">
+
+### Classification Inference
+<img src = "./imgs/clf_atomic_sample.png" width="80%" height="80%">
