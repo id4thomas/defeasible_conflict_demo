@@ -55,10 +55,10 @@ st.markdown("<br>", unsafe_allow_html=True)
 ############################################################
 
 #Get server infos from config
-f = open ('clf_config.json', "r")
+f = open ('./inf_configs/clf_config.json', "r")
 clf_config = json.loads(f.read())
 
-f = open ('gen_config.json', "r")
+f = open ('./inf_configs/gen_config.json', "r")
 gen_config = json.loads(f.read())
 
 #Make Page Based on Active Tab
