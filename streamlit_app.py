@@ -125,6 +125,10 @@ elif active_tab == "Classifier Model":
         output+="     Probs: "+str(probs)
         st.markdown(f"<div style='height: 100px; background-color: #F0F2F6; margin-bottom: 20px; overflow: scroll;'><p style='padding: 10px; overflow: scroll;'>{output}</p></div>", unsafe_allow_html=True)
         
+        col1,col2 = st.columns(2)
+        col1.metric("Strengthener", "{:.4f}".format(probs[0]))
+        col2.metric("Weakener", "{:.4f}".format(probs[1]))
+
         with st.expander("See Inference Debug Info"):
             st.markdown("* Inference Time: "+"{:.3f} seconds".format(additional_info["inf_time"]))
             st.markdown("* Accelerator: "+additional_info["device"])

@@ -6,8 +6,12 @@ Model trained with code from [here](https://github.com/id4thomas/defeasible-nli)
 ![nginx_upstream_server](./imgs/nginx_upstream.png)
 
 ```
-└── nginx_configs
+└── nginx_configs - nginx Configuration Files
     └── gen_atomic.conf
+
+└── inf_configs - HTTP Request configurations
+    └── clf_config.json
+    └── gen_config.json
 
 # Server scripts
 └── run_nginx.sh
@@ -28,3 +32,7 @@ Model trained with code from [here](https://github.com/id4thomas/defeasible-nli)
 └── defeasible_clf_model.py
 └── utils.py
 ```
+
+## Demo
+### Generative Inference
+![gen_atomic_example](./imgs/generative_atomic_sample.png)
