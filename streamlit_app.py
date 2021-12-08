@@ -54,6 +54,13 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 ############################################################
 
+#Get server infos from config
+f = open ('clf_config.json', "r")
+clf_config = json.loads(f.read())
+
+f = open ('gen_config.json', "r")
+gen_config = json.loads(f.read())
+
 #Make Page Based on Active Tab
 if active_tab == "Generation Model":
     st.markdown("### Model Structure")
@@ -67,10 +74,11 @@ if active_tab == "Generation Model":
     if submitted_gen:
         # Send Request to Server
         if model_option=="delta-SNLI Trained":
-            port=1999
+            port=gen_config["snli_port"]
         else:
-            port=1999
-        url = f'http://127.0.0.1:{port}/predict_gen'
+            port=gen_config["atomic_port"]
+
+        url = f'http://{gen_config["nginx_server_ip"]}:{port}/predict_gen'
         with st.spinner('Generating Weakener...'):
             x = requests.post(url, json = inputs)
 
@@ -92,11 +100,12 @@ elif active_tab == "Classifier Model":
     submitted_clf, model_option, inputs = make_clf_page()
     if submitted_clf:
         if model_option=="delta-SNLI Trained":
-            port=2000
+            port=clf_config["snli_port"]
         else:
-            port=2000
+            port=clf_config["atomic_port"]
+            
+        url = f'http://{clf_config["nginx_server_ip"]}:{port}/predict_clf'
 
-        url = f'http://127.0.0.1:{port}/predict_clf'
         with st.spinner('Predicting Update...'):
             x = requests.post(url, json = inputs)
 
