@@ -1,5 +1,5 @@
 {
     "nginx_server_ip": "115.145.162.240",
-    "atomic_port": 2005,
+    "atomic_port": 1998,
     "snli_port": 0
 }
