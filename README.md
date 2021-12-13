@@ -4,7 +4,11 @@ Model trained with code from [here](https://github.com/id4thomas/defeasible-nli)
 
 ## Inference Serving Overview
 ![nginx_upstream_server](./imgs/nginx_upstream.png)
+* nginx로 포트 들어오면 알아서 밸런스 해서 지정해둔 다른 ip,port로 라우팅
+* 백그라운드에서 flask 서버 여러개 열어 두고 거기에 쓰는 포트들 매핑함
+* 포트 하나당 환경 변수 세팅해서 지피유 번호 지정
 
+### File Structure
 ```
 └── nginx_configs - nginx Configuration Files
     └── gen_atomic.conf
@@ -36,7 +40,11 @@ Model trained with code from [here](https://github.com/id4thomas/defeasible-nli)
 ## Demo
 ### Generative Inference
 <!-- ![gen_atomic_example](./imgs/generative_atomic_sample.png) -->
-<img src = "./imgs/generative_atomic_sample.png" width="80%" height="80%">
+<img src = "./imgs/generative_atomic_sample.png" width="60%" height="60%">
 
 ### Classification Inference
-<img src = "./imgs/clf_atomic_sample.png" width="80%" height="80%">
+<img src = "./imgs/clf_atomic_sample.png" width="60%" height="60%">
+
+## To-Do
+* Accelerate inference by converting model to onnx format
+* Multiple-worker with gunicorn
